@@ -23,24 +23,22 @@
         </h3>
         );
     }
-    const Button = () => {
-        return (
+    const Button = () => (
             <button style={{
                 backgroundColor: "tomato"
             }} onClick={() => console.log("im clicked")}>Click me
             </button>
-        );
-    }
+    )
 
 
 
-    const Container = (
+    const Container = () => (
     <div>
         <Title /> 
         <Button />
     </div>
     );
-    ReactDOM.createRoot(root).render(Container);
+    ReactDOM.createRoot(root).render(<Container />);
 
 </script>
 
