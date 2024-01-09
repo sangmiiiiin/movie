@@ -12,21 +12,23 @@
 </body>
 <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-<script>
+<script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
     const root = document.getElementById("root");
-    const btn = React.createElement("button", {
-        id: "title",
-        style: {
-            backgroundColor: "tomato"
-        },
-        onClick: () => console.log("I'm clicked"),
-    }, "Click me");
+    const Title = 
+    <h3 id="title"
+        onMouseEnter={() => console.log('mouse enter')}>
+        Hello, I'm a span
+    </h3>
+    const Button =
+    <button style={{
+        backgroundColor: "tomato"
+    }} onClick={() => console.log("im clicked")}>Click me
+    </button>
 
-    const h3 = React.createElement("span", {
-        onMouseEnter: () => console.log('mouse enter'),
-    }, "Hello, I'm a span");
 
-    const container = React.createElement("div", null, [h3, btn]);
+
+    const container = React.createElement("div", null, [Title, Button]);
     ReactDOM.createRoot(root).render(container);
 
 </script>
