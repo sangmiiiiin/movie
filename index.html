@@ -79,7 +79,7 @@
             <h3>KM 2 M</h3>
             <label htmlFor="KM">Kliometer</label>
             <input
-              value={distance}
+              value={!inverted ? distance : Math.round(distance * 1.6)}
               id="kliometer"
               placeholder="kliometer"
               onChange={onChange}
@@ -90,7 +90,7 @@
           <div>
             <label htmlFor="Miles">Mile</label>
             <input 
-              value={Math.round(distance / 1.6)} 
+              value={inverted ? distance : Math.round(distance / 1.6)} 
               id="mile"
               placeholder="mile"
               onChange={onChange}
