@@ -19,117 +19,27 @@
     crossorigin
     src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    function MinutesToHours() {
-      const [amount, setAmount] = React.useState(0);
-      const [inverted, setInverted] = React.useState(false);
-      const onChange = (event) => {
-        setAmount(event.target.value);
-      };
-      const reset = () => setAmount(0);
-      const onInvert = () => {
-        reset();
-        setInverted((current) => !current);
-      };
+    function Btn({text, big}) {
+      console.log(text, big);
       return (
-        <div>
-          <div>
-            <label htmlFor="minutes">Minutes</label>
-            <input
-              value={inverted ? amount * 60 : amount}
-              id="minutes"
-              placeholder="Minutes"
-              type="number"
-              onChange={onChange}
-              disabled={inverted}
-            />
-          </div>
-
-          <div>
-            <label htmlFor="minutes">Hours</label>
-            <input
-              value={inverted ? amount : Math.round(amount / 60)}
-              id="hours"
-              placeholder="Hours"
-              type="number"
-              disabled={!inverted}
-              onChange={onChange}
-            />
-          </div>
-          <button onClick={reset}>Reset</button>
-          <button onClick={onInvert}>
-            {inverted ? "Turn back" : "Inverted"}
-          </button>
-        </div>
-      );
-    }
-    function KmToMiles() {
-      const [distance, setDistance] = React.useState(0);
-      const [inverted, setInverted] = React.useState(false);
-      const onChange = (event) => {
-        setDistance(event.target.value);
-      };
-      const reset = () => setDistance(0);
-      const onInvert = () => {
-        reset();
-        setInverted((current) => !current);
-      };
-      return (
-        <div>
-          <div>
-            <h3>KM 2 M</h3>
-            <label htmlFor="KM">Kliometer</label>
-            <input
-              value={!inverted ? distance : Math.round(distance * 1.6)}
-              id="kliometer"
-              placeholder="kliometer"
-              onChange={onChange}
-              type="number"
-              disabled={inverted}
-            />
-          </div>
-          <div>
-            <label htmlFor="Miles">Mile</label>
-            <input
-              value={inverted ? distance : Math.round(distance / 1.6)}
-              id="mile"
-              placeholder="mile"
-              onChange={onChange}
-              type="number"
-              disabled={!inverted}
-            />
-          </div>
-          <button onClick={reset}>reset</button>
-          <button onClick={onInvert}>{inverted ? "Turn back" : "Flip"}</button>
-        </div>
-      );
-    }
-    function GasCalculate() {
-      return (
-        <div>
-          <h3>Gas Calculate</h3>
-        </div>
+        <button
+          style={{
+            backgroundColor: "tomato",
+            color: "white",
+            padding: "10px 20px",
+            borderRadius: 10,
+            border: 0,
+            fontSize: big ? 18 : 16
+          }}>
+          {text}
+        </button>
       );
     }
     function App() {
-      const [index, setIndex] = React.useState("0");
-      const onSelect = (event) => {
-        setIndex(event.target.value);
-      };
-      console.log("render w/", index);
       return (
         <div>
-          <h1>Super Converter</h1>
-          <select value={index} onChange={onSelect}>
-            <option value="0">Select your units</option>
-            <option value="1">Minutes & Hours</option>
-            <option value="2">Km & Miles</option>
-            <option value="3">Gas & cash</option>
-          </select>
-          <hr />
-          {index === "0" ? "Please select your units" : null}
-          {index === "1" ? <MinutesToHours /> : null}
-          {index === "2" ? <KmToMiles /> : null}
-          {index === "3" ? <GasCalculate /> : null}
+          <Btn text="Save Changes" big={true}/>
+          <Btn text="Continue" big={false}/>
         </div>
       );
     }
