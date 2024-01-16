@@ -89,8 +89,8 @@
           </div>
           <div>
             <label htmlFor="Miles">Mile</label>
-            <input 
-              value={inverted ? distance : Math.round(distance / 1.6)} 
+            <input
+              value={inverted ? distance : Math.round(distance / 1.6)}
               id="mile"
               placeholder="mile"
               onChange={onChange}
@@ -100,6 +100,13 @@
           </div>
           <button onClick={reset}>reset</button>
           <button onClick={onInvert}>{inverted ? "Turn back" : "Flip"}</button>
+        </div>
+      );
+    }
+    function GasCalculate() {
+      return (
+        <div>
+          <h3>Gas Calculate</h3>
         </div>
       );
     }
@@ -116,11 +123,13 @@
             <option value="0">Select your units</option>
             <option value="1">Minutes & Hours</option>
             <option value="2">Km & Miles</option>
+            <option value="3">Gas & cash</option>
           </select>
           <hr />
           {index === "0" ? "Please select your units" : null}
           {index === "1" ? <MinutesToHours /> : null}
           {index === "2" ? <KmToMiles /> : null}
+          {index === "3" ? <GasCalculate /> : null}
         </div>
       );
     }
