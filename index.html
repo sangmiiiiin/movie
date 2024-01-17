@@ -35,6 +35,7 @@
         </button>
       );
     }
+    const MemorizedBtn = React.memo()
     function App() {
       const [value, setValue] = React.useState("Save Changes");
       const changeValue = () => setValue("Revert Changes")
