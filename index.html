@@ -15,7 +15,7 @@
 <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script crossorigin src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
 <script type="text/babel">
-  function Btn({ text, fontSize = 22 }) {
+  function Btn({ text, fontSize = 22 }) { // Btn 컴포넌트 함수의 첫 번째 인자 안에서 prop에 접근 가능
     console.log(text, "was rendered");
     return (
       <button
@@ -31,15 +31,16 @@
       </button>
     );
   }
-  Btn.propTypes = {
-    text: PropTypes.string,
-    fontSize: PropTypes.number.isRequired,
+  Btn.propTypes = { // propTypes로 잘못된 Type의 전달을 미연에 방지 가능
+    text: PropTypes.string,   
+    fontSize: PropTypes.number.isRequired, // fontsize는 number만을 받는것을 검사 한다. 그리고 필수 입력값
   };
   function App() {
     return (
+      // 전달된 모든 prop들을 하나의 객체로 받는다.
       <div>
-        <Btn text="Save Changes" fontSize={18} />
-        <Btn text={"Continue"} />
+        <Btn text="Save Changes" fontSize={18} /> 
+        <Btn text={"Continue"} fontSize={30}/>
       </div>
     );
   }
